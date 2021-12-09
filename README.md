@@ -1,5 +1,6 @@
+# TTNT20211
 
-AI chess is a simple chess game with AI inspired by this Medium article: [A step-by-step guide to building a simple chess AI](https://medium.freecodecamp.com/simple-chess-ai-step-by-step-1d55a9266977).
+AIchess is a simple chess game with AI inspired by this Medium article: [A step-by-step guide to building a simple chess AI](https://medium.freecodecamp.com/simple-chess-ai-step-by-step-1d55a9266977).
 
 <img src="img/screenshot.png" width="346" height="382"/>
 

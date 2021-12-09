@@ -3,7 +3,7 @@ from random import choice
 
 import chess
 
-import ai
+import AI
 import gui
 
 
@@ -14,7 +14,7 @@ class Game:
     is_player_white = player_turns[-1]
 
     root = Tk()
-    root.title('chessAI')
+    root.title('Yachess')
 
     def __init__(self):
         self.display = gui.GUI(self.root, self, self.board, self.player_turns)
@@ -41,7 +41,7 @@ class Game:
         self.root.after(100000000, self.computer_play)
 
     def computer_play(self):
-        ai.AI(self.board, self.is_player_white).ai_move()
+        AI.AI(self.board, self.is_player_white).ai_move()
 
         self.display.refresh()
         self.display.draw_pieces()
@@ -57,5 +57,5 @@ class Game:
 
             self.root.after(100, self.player_play)
 
-
-Game().start()
+if __name__ == '__main__':
+    Game().start()

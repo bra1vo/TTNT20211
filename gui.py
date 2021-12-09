@@ -190,7 +190,7 @@ class GUI(tkinter.Frame):
             piece = self.board.piece_at(square)
 
             if piece is not None:
-                image_name = 'img/%s.png' % (piece.symbol())
+                image_name = 'img/w%s.png' % (piece.symbol())
                 piece_name = '%s%s' % (piece.symbol(), square)
 
                 if image_name not in self.icons:

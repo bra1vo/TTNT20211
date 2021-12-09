@@ -2,7 +2,7 @@ import chess
 
 import table
 
-
+    
 def evaluate_board(board):
     return sum(
         piece_value(board.piece_at(square), square)

@@ -6,14 +6,10 @@ from chess.polyglot import open_reader
 
 from board import evaluate_board
 
-
 class AI:
     depth = 3
 
     board_caches = {}
-
-    cache_hit = 0
-    cache_miss = 0
 
     try:
         cache = open('data/cache.p', 'rb')
@@ -28,9 +24,7 @@ class AI:
         self.is_ai_white = not is_player_white
 
         with open_reader('data/opening.bin') as reader:
-            self.opening_moves = [
-                str(entry.move()) for entry in reader.find_all(board)
-            ]
+            self.opening_moves = [str(entry.move) for entry in reader.find_all(board)]
 
     def ai_move(self):
         global_score = -1e8 if self.is_ai_white else 1e8
@@ -60,8 +54,6 @@ class AI:
 
                 print(local_score, move)
 
-            print('\ncache_hit: ' + str(self.cache_hit))
-            print('cache_miss: ' + str(self.cache_miss) + '\n')
 
         print(str(global_score) + ' ' + str(chosen_move) + '\n')
 
@@ -73,11 +65,7 @@ class AI:
     def minimax(self, depth, is_maxing_white, alpha, beta):
         # if board in cache
         if self.hash_board(depth, is_maxing_white) in self.board_caches:
-            self.cache_hit += 1
-
             return self.board_caches[self.hash_board(depth, is_maxing_white)]
-
-        self.cache_miss += 1
 
         # if depth is 0 or game is over
         if depth == 0 or not self.board.legal_moves:
