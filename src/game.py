@@ -14,7 +14,7 @@ class Game:
     is_player_white = player_turns[-1]
 
     root = Tk()
-    root.title('Yachess')
+    root.title('chessAI')
 
     def __init__(self):
         self.display = gui.GUI(self.root, self, self.board, self.player_turns)
